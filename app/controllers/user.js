@@ -29,7 +29,7 @@ module.exports = {
 	 */
 	getAll(req, res) {
 		User.findAll({})
-			.then(users => res.status(201).send(users))
+			.then(users => res.status(200).send(users))
 			.catch(error => res.status(400).send(error))
 	},
 
@@ -42,7 +42,7 @@ module.exports = {
 		const id = req.params.id
 		User.findOne()
 		User.findOne({ where: { id: id } })
-			.then(user => res.status(201).send(user))
+			.then(user => res.status(200).send(user))
 			.catch(error => res.status(400).send(error))
 	}
 }
