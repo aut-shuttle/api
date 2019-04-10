@@ -1,5 +1,10 @@
 const User = require('../models/').User
 module.exports = {
+	/**
+	 * Creates a user based on given details.
+	 * @param {Object} req Request body
+	 * @param {Object} res Response body
+	 */
 	createUser(req, res) {
 		return User.create({
 			first_name: req.body.first_name,
@@ -17,12 +22,22 @@ module.exports = {
 			.catch(error => res.status(400).send(error))
 	},
 
+	/**
+	 * Returns the details for all users.
+	 * @param {Object} req Request body
+	 * @param {Object} res Response body
+	 */
 	getAll(req, res) {
 		User.findAll({})
 			.then(users => res.status(201).send(users))
 			.catch(error => res.status(400).send(error))
 	},
 
+	/**
+	 * Returns the given user's details.
+	 * @param {Object} req Request body
+	 * @param {Object} res Response body
+	 */
 	getOne(req, res) {
 		const id = req.params.id
 		User.findOne()

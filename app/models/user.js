@@ -3,6 +3,10 @@ module.exports = (sequelize, DataTypes) => {
 	var User = sequelize.define(
 		'User',
 		{
+			id: {
+				type: DataTypes.INTEGER(11),
+				primaryKey: true
+			},
 			first_name: {
 				type: DataTypes.STRING(100)
 			},
@@ -26,7 +30,8 @@ module.exports = (sequelize, DataTypes) => {
 				defaultValue: 0
 			},
 			password: {
-				type: DataTypes.STRING(255)
+				type: DataTypes.STRING(255),
+				select: false
 			},
 			balance: {
 				type: DataTypes.DECIMAL(5, 2)
@@ -55,7 +60,10 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{
 			timestamps: false,
-			tableName: 'User'
+			tableName: 'User',
+			defaultScope: {
+				attributes: { exclude: ['password'] }
+			}
 		}
 	)
 	return User
