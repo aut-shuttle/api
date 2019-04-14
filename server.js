@@ -30,6 +30,18 @@ app.use(
 	})
 )
 
+//Database initialisation
+const models = require('./app/models')
+
+models.sequelize
+	.sync()
+	.then(function() {
+		console.log('Nice! Database working')
+	})
+	.catch(function(err) {
+		console.log(err, 'something is wrong')
+	})
+
 // Initialise Middleware
 app.use(cors())
 app.use(passport.initialize())

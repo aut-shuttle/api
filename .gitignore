@@ -1,4 +1,6 @@
 .env
+.env.remote
+.env.local
 node_modules/
 !.gitkeep
 .DS_Store
