@@ -40,7 +40,6 @@ module.exports = {
 	 */
 	getOne(req, res) {
 		const id = req.params.id
-		User.findOne()
 		User.findOne({ where: { id: id } })
 			.then(user => res.status(200).send(user))
 			.catch(error => res.status(400).send(error))

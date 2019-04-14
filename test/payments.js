@@ -1,14 +1,17 @@
-process.env.NODE_ENV = 'test'
+process.env.NODE_ENV = 'development'
 
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 const server = require('../server')
 const should = chai.should()
 
+const faker = require('faker')
+
 const paymentDetails = {
-	userID: 1,
-	transactionID: 'PAY-TEST123-FROMPAYPAL',
-	amount: 23
+	user_id: 1,
+	payment_id: 'jhgfd',
+	transaction_hash: 'JHBGVF.876XDCF43.HGFD567WC',
+	amount: faker.finance.amount(1, 200, 2)
 }
 let token = ''
 
