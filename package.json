@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "NODE_ENV=production node server.js",
     "dev": "NODE_ENV=development nodemon server.js",
     "format": "prettier --write --config .prettierrc.json \"**/*.js\""
@@ -26,13 +26,21 @@
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "dotenv-safe": "^6.1.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.4",
     "helmet": "^3.16.0",
     "morgan": "^1.9.1",
-    "passport": "^0.4.0"
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "path": "^0.12.7",
+    "sequelize": "^5.2.10"
   },
   "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.0.2",
     "nodemon": "^1.18.10",
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "sequelize-cli": "^5.4.0"
   }
 }

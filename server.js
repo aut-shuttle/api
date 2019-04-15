@@ -1,10 +1,11 @@
-require("dotenv-safe").config()
+require('dotenv-safe').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const cors = require('cors')
 const passport = require('passport')
+const path = require('path')
 const app = express()
 
 // Express port, default: 3000
@@ -33,7 +34,10 @@ app.use(
 app.use(cors())
 app.use(passport.initialize())
 app.use(helmet())
-// app.use(require("./app/routes")) // --> Uncomment when "/"" route exists.
+app.set('views', path.join(__dirname, 'views'))
+app.engine('html', require('ejs').renderFile)
+app.set('view engine', 'html')
+app.use(require('./app/routes'))
 app.listen(app.get('port'))
 
 module.exports = app
