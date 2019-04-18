@@ -28,21 +28,21 @@ module.exports = {
 						userData.password = hash
 						User.create(userData)
 							.then(user => {
-								res.json({
+								res.status(201).json({
 									status:
 										req.body.email_address + ' registered. UserID: ' + user.id
 								})
 							})
 							.catch(err => {
-								res.send('error: ' + err)
+								res.status(400).send('error: ' + err)
 							})
 					})
 				} else {
-					res.json({ error: 'User already exists' })
+					res.status(400).json({ error: 'User already exists' })
 				}
 			})
 			.catch(err => {
-				res.send('error: ' + err)
+				res.status(400).send('error: ' + err)
 			})
 	},
 
@@ -63,7 +63,7 @@ module.exports = {
 						res.status(400).json({ error: 'Incorrect Password' })
 					}
 				} else {
-					res.status(400).json({ error: 'User does not exist' })
+					res.status(404).json({ error: 'User does not exist' })
 				}
 			})
 			.catch(err => {
