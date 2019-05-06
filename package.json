@@ -8,8 +8,8 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "NODE_ENV=production node server.js",
-    "dev": "NODE_ENV=development nodemon server.js",
+    "start": "react-scripts start",
+    "dev": "react-scripts start",
     "format": "prettier --write --config .prettierrc.json \"**/*.js\""
   },
   "repository": {
