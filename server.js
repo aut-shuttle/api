@@ -51,6 +51,6 @@ app.set('views', path.join(__dirname, 'views'))
 app.engine('html', require('ejs').renderFile)
 app.set('view engine', 'html')
 app.use(require('./app/routes'))
-app.listen(process.env.PORT || port)
+app.listen(app.get('port'))
 
 module.exports = app
